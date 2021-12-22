@@ -1,0 +1,13 @@
+1) composer create-project laravel/laravel 'your project name'  ---- command to create laravel project.
+
+2) npm install --- to install all dependency and laravel mix
+
+3) composer require laravel/ui  --dev  ------ this installs all ui commands
+
+4) php artisan ui vue --auth    ----- this installs all auth related views and controller files with vuejs support
+
+5) php artisan migrate    ---- this will migrate all the DB table to mysql database
+
+6) php artisan migrate:fresh    ---- rollback and migrate DB
+
+7) php artisan serve    ------- to run the project
