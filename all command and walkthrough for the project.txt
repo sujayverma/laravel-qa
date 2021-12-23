@@ -36,4 +36,6 @@ now make changes to the new migratgration file add new columns and relations
 
 18) Create relationship between user and question model. 
 
+19) Git commit and push code git push origin database
+
 
