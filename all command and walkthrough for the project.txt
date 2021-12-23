@@ -1,0 +1,39 @@
+1) composer create-project laravel/laravel 'your project name'  ---- command to create laravel project.
+
+2) npm install --- to install all dependency and laravel mix
+
+3) composer require laravel/ui  --dev  ------ this installs all ui commands
+
+4) php artisan ui vue --auth    ----- this installs all auth related views and controller files with vuejs support
+
+5) php artisan migrate    ---- this will migrate all the DB table to mysql database
+before this goto config/database change to utf8
+
+6) php artisan migrate:fresh    ---- rollback and migrate DB
+
+7) php artisan serve    ------- to run the project
+
+8) git init
+
+9) git add .
+
+10) git commit -m''
+
+11) $ git remote add origin https://github.com/sujayverma/laravel-qa.git
+
+12) $ git branch -M master
+
+13) $ git push -u origin master
+
+14) git branch 
+
+15) git checkout -b database
+
+16) php artisan make:model Question -m   --------- creates model along with migrattion
+now make changes to the new migratgration file add new columns and relations
+
+17) run php artisan migrate    ------ to create questions table in the DB.
+
+18) Create relationship between user and question model. 
+
+
