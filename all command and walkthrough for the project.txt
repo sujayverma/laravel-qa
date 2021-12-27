@@ -58,4 +58,14 @@ User::factory(3)->create()->each(function($u){
 ----------- this will create fake users and questions.
 now in terminal run php artisan migrate:fresh --seed     -------- this will drop and then create tables in Db with fake data.
 
+25) Create a new branch for this lesson 
+git checkout -b leasson-4
 
+26) Open web routes and add resource route for questions controller.
+
+27) in cmd php artisan make:controller QuestionsController --resource --model=Question
+create views for questions and show the question and pagination
+for laravel 8 install bootstrap UI using  ---php artisan ui bootstrap ---npm install && npm run dev
+also use php artisan vendor:publish --tag=laravel-pagination  ------ this help in getting pagination styling
+
+now git push code to branch
