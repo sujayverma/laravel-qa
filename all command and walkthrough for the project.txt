@@ -69,3 +69,14 @@ for laravel 8 install bootstrap UI using  ---php artisan ui bootstrap ---npm ins
 also use php artisan vendor:publish --tag=laravel-pagination  ------ this help in getting pagination styling
 
 now git push code to branch
+28) Create a branch lesson-5 use git checkout -b lesson-5
+
+29) Add link to title and show author of the question and created at timings value in view blade page.
+Now set this accesor value in Model using getAttribute method.
+
+30) Now how do we check what are the sql queries running to get all this questions? 
+to check we need to install a package and this package will be used only in development
+option 1 ---composer require barryvdh/laravel-debugbar --dev   ------the package to check sql queries that are running.
+option 2 --- use of DB facades as used in the question controller.
+Now when we check the querylog we find N+1 query is running using eloquent. To solve this issue we need to use WITH in
+eloquent as used in question controller.
