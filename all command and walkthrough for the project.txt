@@ -80,3 +80,10 @@ option 1 ---composer require barryvdh/laravel-debugbar --dev   ------the package
 option 2 --- use of DB facades as used in the question controller.
 Now when we check the querylog we find N+1 query is running using eloquent. To solve this issue we need to use WITH in
 eloquent as used in question controller.
+
+31) Time add votes, answer and view counter. Let create a branch git checkout -b lesson-6
+Open resource sass folder create css variable also add css to app.sass file. compile the sass into css by using Command
+npm run dev or npm run watch
+Add votes, answers and views value in view page. Create a accessor in model file to update the css class as per value.
+Done.
+Git add. git commit -m '' git push origin lesson-6 git checkout master git merge lesson-6 git push origin master
