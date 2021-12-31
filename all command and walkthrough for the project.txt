@@ -87,3 +87,7 @@ npm run dev or npm run watch
 Add votes, answers and views value in view page. Create a accessor in model file to update the css class as per value.
 Done.
 Git add. git commit -m '' git push origin lesson-6 git checkout master git merge lesson-6 git push origin master
+
+32) For lesson 7 lets create a branch lesson-7 git checkout -b lesson-7
+In this lesson we learnt how to create a form and add error message divs also added @csrf token in form.
+then git push and merge process.

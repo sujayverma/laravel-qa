@@ -31,7 +31,8 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        $question = new Question(); // empty question model.
+        return view('questions.create', compact('question'));
     }
 
     /**
