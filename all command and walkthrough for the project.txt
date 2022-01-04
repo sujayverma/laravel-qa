@@ -91,3 +91,9 @@ Git add. git commit -m '' git push origin lesson-6 git checkout master git merge
 32) For lesson 7 lets create a branch lesson-7 git checkout -b lesson-7
 In this lesson we learnt how to create a form and add error message divs also added @csrf token in form.
 then git push and merge process.
+
+33) For lesson 8 we added validation to form. Corrected issue with fillable in question model. And saved value to DB
+from the form. Added a _message.blade for layout to show success message in question index templete. Learnt how to add
+or create new Request for form validation. ----- php artisan make:Request AskQuestionRequest
+then git push and merge process.
+

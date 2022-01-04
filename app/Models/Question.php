@@ -10,7 +10,7 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $fillables = ['title', 'body'];
+    protected $fillable = ['title', 'body'];
 
     public function user () {
         return $this->belongsTo('App\Models\User');
