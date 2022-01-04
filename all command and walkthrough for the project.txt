@@ -97,3 +97,8 @@ from the form. Added a _message.blade for layout to show success message in ques
 or create new Request for form validation. ----- php artisan make:Request AskQuestionRequest
 then git push and merge process.
 
+34) Create new branch git checkout -b lesson-9
+in this lesson we learn how to update a form data. For this we create a different templete for form. Included this form
+in create and edit templete. Passed a hidden PUT method in form using method_field() then in controller update method
+updated the DB. lesson done next git push and merge. 
+
