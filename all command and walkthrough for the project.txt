@@ -111,3 +111,8 @@ In this lesson we learnt how to remove a route from resource route list and how 
 Had to update RouteServiceProvider boot fucntion had to bind a method for question slugs.
 Installed parsedown to show html in proper way. https://github.com/parsedown/laravel
 git add commit push
+
+35) Use Gate for authorization permission of question edit and delete.
+Add & define gate in AuthServiceProvider use Support Fascade gate classes on both service provider and controller.
+Use allow or denies function for the task. Use CAN in view to hide edit and delete for unauthorized users.
+Git commit and push branch lesson-12-a
