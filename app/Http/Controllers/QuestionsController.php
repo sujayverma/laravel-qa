@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
 use App\Http\Requests\AskQuestionRequest;
 use App\Models\User;
+// use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 
 class QuestionsController extends Controller
 {
@@ -69,7 +71,13 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        
+        if( ! Gate::allows('update-question', $question) ){
+            abort(403, 'Fuck off!!');
+        }
+        // if (Gate::forUser(User)->denies('update-post', $question)) {
+        //     // The user can't update the post...
+        // }
         return view('questions.edit', compact('question'));
     }
 
@@ -97,6 +105,9 @@ class QuestionsController extends Controller
     public function destroy(Question $question)
     {
         //
+        if( ! Gate::allows('delete-question', $question) ){
+            abort(403, 'Access Denied');
+        }
         $question->delete();
         return redirect()->route('question.index')->with('success','Question deleted successfully.');
     }
