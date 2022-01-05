@@ -105,3 +105,8 @@ updated the DB. lesson done next git push and merge.
 35) Create a branch lesson-10
 Use the destroy route to delte the question. by crating a form use submit button in the form.
 Git add push and merge.
+
+36) Create a branch
+In this lesson we learnt how to remove a route from resource route list and how to add a custom route for show with slugs.
+Had to update RouteServiceProvider boot fucntion had to bind a method for question slugs.
+git add commit push
