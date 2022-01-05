@@ -109,4 +109,5 @@ Git add push and merge.
 36) Create a branch
 In this lesson we learnt how to remove a route from resource route list and how to add a custom route for show with slugs.
 Had to update RouteServiceProvider boot fucntion had to bind a method for question slugs.
+Installed parsedown to show html in proper way. https://github.com/parsedown/laravel
 git add commit push
