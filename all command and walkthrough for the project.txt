@@ -102,3 +102,6 @@ in this lesson we learn how to update a form data. For this we create a differen
 in create and edit templete. Passed a hidden PUT method in form using method_field() then in controller update method
 updated the DB. lesson done next git push and merge. 
 
+35) Create a branch lesson-10
+Use the destroy route to delte the question. by crating a form use submit button in the form.
+Git add push and merge.

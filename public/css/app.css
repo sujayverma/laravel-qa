@@ -11315,3 +11315,7 @@ textarea.form-control-lg {
   background-color: #5fbb7e;
   color: #fff;
 }
+
+form.form-delete {
+  display: inline;
+}
