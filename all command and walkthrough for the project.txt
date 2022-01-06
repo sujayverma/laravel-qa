@@ -116,3 +116,10 @@ git add commit push
 Add & define gate in AuthServiceProvider use Support Fascade gate classes on both service provider and controller.
 Use allow or denies function for the task. Use CAN in view to hide edit and delete for unauthorized users.
 Git commit and push branch lesson-12-a
+
+36) Use of Policy for authorization permission for question edit and delete. 
+php artisan make:policy QuestionPolicy --model=Question  ----- this will create a policy for Question model.
+add the user check in policy functions add the model and policy in AuthServiceProvider class.
+Use it in controller fucntions for authorization. Use auth middleware to protect create question route.
+Use CAN in view to hide edit and delete for unauthorized users.
+Git commit push branch lesson-12-b and merge with master.
