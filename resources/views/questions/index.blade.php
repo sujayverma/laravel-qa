@@ -8,9 +8,11 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center" style="align-items: center">
                         <h2>All Questions</h2>
+                        @if(Auth::user())
                         <div class="ml-auto" style="margin-left: auto">
                             <a href="{{ route('question.create')}}" class="btn btn-outline-secondary">Ask Question</a>
                         </div>
+                        @endif
                     </div>
                     
                 </div>
@@ -34,12 +36,16 @@
                             <div class="d-flex align-items-center" style="align-items: center">
                                 <h3 class="mt-0"><a href="{{ $question->url }}"> {{ $question->title }} </a></h3>
                                 <div class="ml-auto" style="margin-left: auto">
-                                    <a href="{{ route('question.edit', $question->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
-                                    <form class="form-delete" method="POST" action=" {{ route('question.destroy', $question->id) }}">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure?')">Delete</button>
-                                    </form>
+                                    @can('update', $question)
+                                        <a href="{{ route('question.edit', $question->id)}}" class="btn btn-sm btn-outline-info">Edit</a>
+                                    @endcan
+                                    @can('delete', $question)
+                                        <form class="form-delete" method="POST" action=" {{ route('question.destroy', $question->id) }}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure?')">Delete</button>
+                                        </form>
+                                    @endcan
                                 </div>
                             </div>
                             <p class="lead">
