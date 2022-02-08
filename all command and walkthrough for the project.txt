@@ -135,3 +135,8 @@ https://laravel.com/docs/8.x/migrations#renaming-and-dropping-tables
 Then run php artisan:migrate.
 Make changes to columns name answers in Questions model, QuestionPolicy and View File.
 git add. 
+git commit -m 'message'
+git push origin lesson-13
+git checkout master
+git merge lesson-13
+git push origin master
