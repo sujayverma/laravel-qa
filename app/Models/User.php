@@ -42,11 +42,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function questions () {
+    /*
+        This Created Relation with Question Model.
+     */
+    public function questions () 
+    {
         return $this->hasMany('App\Models\Question');
     }
 
-    public function getUrlAttribute() {
+    /*
+        This Created Relation with Answer Model.
+     */
+    public function answers ()
+    {
+        return $this->hasMany('App\Models\Answer');
+    }
+
+     /*
+        This Sets url accessor to access value in views.
+     */
+    public function getUrlAttribute() 
+    {
         // return route('questions.show', $this->id);
         return '#';
     }

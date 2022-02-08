@@ -12,25 +12,53 @@ class Question extends Model
 
     protected $fillable = ['title', 'body'];
 
-    public function user () {
+    /*
+        This Created Relation with User Model.
+     */    
+    public function user () 
+    {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function setTitleAttribute ($value) {
+    /*
+        This Created Relation with Answer Model.
+     */ 
+    public function answers ()
+    {
+        return $this->hasMany('App\Models\Answer');
+    }
+
+    /*
+        This Sets value for slug to store in DB.
+     */
+    public function setTitleAttribute ($value) 
+    {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    public function getUrlAttribute() {
+    /*
+        This Sets url accessor to access value in views.
+     */
+    public function getUrlAttribute() 
+    {
         return route('question.show', $this->slug);
     }
 
-    public function getCreatedDateAttribute() {
+    /*
+        This Sets created_date accessor to access value in views.
+     */
+    public function getCreatedDateAttribute() 
+    {
         return $this->created_at->diffForHumans();
     }
 
-    public function getStatusAttribute() {
-        if($this->answers > 0){
+     /*
+        This Sets status accessor to access value in views.
+     */
+    public function getStatusAttribute() 
+    {
+        if($this->answers_count > 0){
             if($this->best_answer_id)
                 return 'answer-accepted';
             return 'answered';
@@ -38,8 +66,12 @@ class Question extends Model
         return 'unanswered';
     }
 
+     /*
+        This Sets body_html accessor to access value in views.
+     */
     public function getBodyHtmlAttribute()
     {
        return \Parsedown::instance()->text($this->body);
     }
+
 }

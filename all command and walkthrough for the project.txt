@@ -123,3 +123,15 @@ add the user check in policy functions add the model and policy in AuthServicePr
 Use it in controller fucntions for authorization. Use auth middleware to protect create question route.
 Use CAN in view to hide edit and delete for unauthorized users.
 Git commit push branch lesson-12-b and merge with master.
+
+37) Now we need to create Answers for the Questions. So lets create a branch lesson-13. Create a Model Answer.
+php artisan make:model Answer -m
+Add all the column names in Answer migrate file.
+Now create relation between question and Answer model.
+We need to change the column name answers for questions table to do that we need to create
+migration file. php artisan make:migration rename_answers_in_questions_table 
+to run the migrate we need to install dependency composer require doctrine/dbal
+https://laravel.com/docs/8.x/migrations#renaming-and-dropping-tables
+Then run php artisan:migrate.
+Make changes to columns name answers in Questions model, QuestionPolicy and View File.
+git add. 
