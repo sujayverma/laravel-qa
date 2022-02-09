@@ -140,3 +140,21 @@ git push origin lesson-13
 git checkout master
 git merge lesson-13
 git push origin master
+
+38) We will create fake answers by using factory model.
+First create a branch git checkout -b lesson-14.
+php artisan make:factory AnswerFactory
+Add fields value to defination function in factory class.
+For useing ramdom user ids import user model and then use ----User::pluck('id')->random()
+Update the database seeds file. 
+Eloquent Events: Eloquent Models fire several events, allowing you to hook into the following points
+in model's lifecycle:
+ i) retrieved: --- This event is fired when the model in retrieved or fetched.
+ ii) creating, created  ----- This event is fired when the new model is saved for the first time.
+ iii) updating, updated ----- this event is fired when updating a existing model.
+ iv) saving, saved      ----- this event is fired on both occasions while saving and updating a Model.
+ v) deleting, deleted   ----- this event is fired when existing model is deleted.
+ vi) restore, restoring ----- This event is fired when restoring a model.
+
+ Now add a public static boot function to the Answer model. Make a call to parent boot function.
+ Now add created hook function to this boot function.
