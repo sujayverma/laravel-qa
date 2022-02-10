@@ -169,3 +169,5 @@ in model's lifecycle:
  git checkout -b lesson-15
  Showed all the answers to question in show question page.
  Added design and date time with user name used gravatar.
+ git add. and commit merge with master.
+ 
