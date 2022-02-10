@@ -24,6 +24,7 @@ class QuestionsController extends Controller
         //
         // DB::enableQueryLog();
         // $questions = Question::latest()->paginate(5);
+        // below with is used for solving N+1 query issue.
         $questions = Question::with('user')->latest()->paginate(5);
         return view('questions.index', compact('questions'));
         // view('questions.index', compact('questions'))->render();

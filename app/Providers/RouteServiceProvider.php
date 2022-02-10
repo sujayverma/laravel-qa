@@ -48,9 +48,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
-
+            // This is used for routing urls with slugs.
             Route::bind('slug', function($slug){
-                return Question::where('slug', $slug)->first() ?? abort(404);
+                // return Question::where('slug', $slug)->first() ?? abort(404);
+                return Question::with('answers.user')->where('slug', $slug)->first() ?? abort(404);
             });
         });
     }

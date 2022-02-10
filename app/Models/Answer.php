@@ -22,7 +22,7 @@ class Answer extends Model
      */
     public function user ()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     /*
@@ -31,6 +31,14 @@ class Answer extends Model
     public function getBodyHtmlAttribute()
     {
        return \Parsedown::instance()->text($this->body);
+    }
+
+    /*
+        This Sets created_date accessor to access value in views.
+     */
+    public function getCreatedDateAttribute() 
+    {
+        return $this->created_at->diffForHumans();
     }
 
     public static function boot()
