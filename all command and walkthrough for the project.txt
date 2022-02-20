@@ -170,4 +170,13 @@ in model's lifecycle:
  Showed all the answers to question in show question page.
  Added design and date time with user name used gravatar.
  git add. and commit merge with master.
+
+ 40) We will develop voting for the question in this lesson
+ so, git checkout -b lesson-16
+ npm i @fortawesome/fontawesome-free
+ added font cdn link in layout file.
+ add css in scss file. Used caret-up, caret-down, star and check icon for question and answer.
+ git add.
+ git commit 
+ git push git merge git push
  
