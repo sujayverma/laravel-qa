@@ -9,6 +9,8 @@ class Answer extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['body', 'user_id'];
+
     /*
         This Created Relation with Question Model.
      */
