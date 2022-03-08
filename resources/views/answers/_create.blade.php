@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('question.answers.store', $question->id) }}">
                     @csrf
                     <div class="mb-3">
-                        <textarea name="body" rows="7" class="form-control {{ $errors->has('body') ? 'is_invalid' : ''}} "></textarea>
+                        <textarea name="body" rows="7" class="form-control @error('body') is-invalid @enderror "></textarea>
                     </div>
                     <div class="mb-3">
                         <button type="submit" name="submit" class="btn btn-lg btn-outline-primary">Submit</button>

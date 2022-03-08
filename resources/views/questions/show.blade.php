@@ -57,6 +57,9 @@
         'answers' => $question->answers,
         'answersCount' => $question->answers_count
     ])
+    {{-- @can('canAnswer') --}}
     @include('answers._create')
+    {{-- @endcan --}}
+    
 </div>
 @endsection

@@ -23,7 +23,7 @@ class AnswersController extends Controller
             'body' => 'required'
         ]) + [ 'user_id' => \Auth::id()]);
 
-        return redirect()->back()->with('success', 'Ypur answer has been submitted successfully');
+        return redirect()->back()->with('success', 'Your answer has been submitted successfully');
     }
 
 

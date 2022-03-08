@@ -183,4 +183,7 @@ in model's lifecycle:
  41) We will develop saving answer for question.
  Made changes to question show.blade file made seprate file for showing answers.
  Create a answer folder in views folder and create all crud view files required.
- 
+ Added error class to text area field for validation.
+ git add.
+ git commit
+ git push git merge git push

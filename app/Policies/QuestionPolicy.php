@@ -36,6 +36,13 @@ class QuestionPolicy
         return $user->id === $question->user_id  && $question->answers_count < 1;
     }
 
+    // public function canAnswer(User $user)
+    // {
+    //     if(isset($user->id)){
+    //         return true;
+    //     }
+    // }
+
     /**
      * Determine whether the user can restore the model.
      *

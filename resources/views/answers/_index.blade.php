@@ -12,7 +12,7 @@
 
                 @foreach ( $answers as $answer )
                     <div class="d-flex bd-highlight">
-                        <div class="p-2 flex-grow-1 bd-highlight">
+                        <div class="p-2 flex-grow-2 bd-highlight">
                             <div class="d-flex flex-column vote-controls">
                                 <a title="This answer is usefull" class="vote-up">
                                     <i class="fas fa-caret-up fa-3x"></i>
@@ -26,7 +26,7 @@
                                 </a>
                             </div>
                             </div>
-                        <div class="p-2 flex-grow-2 bd-highlight">
+                        <div class="p-2 flex-grow-1 bd-highlight">
                             {!! $answer->body_html !!}
 
                             <div class="float-end">
