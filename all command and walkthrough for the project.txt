@@ -187,3 +187,11 @@ in model's lifecycle:
  git add.
  git commit
  git push git merge git push
+
+42) Created a new branch lesson-18. we will learn how to update the user answers.
+Add update and delete button to answer index blade.
+create a new policy for edit and delete button for answers.
+php artisan make:policy AnswerPolicy --model=Answer
+add code to update delete function use @can in view to show the 2 buttons. 
+use authorize function in answercontroller and add edit and update code.
+git add . git commit git push git checkout git merge git push
