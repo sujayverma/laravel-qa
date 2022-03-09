@@ -195,3 +195,6 @@ php artisan make:policy AnswerPolicy --model=Answer
 add code to update delete function use @can in view to show the 2 buttons. 
 use authorize function in answercontroller and add edit and update code.
 git add . git commit git push git checkout git merge git push
+
+43) Created a new branch lesson-19. In this we will learn how to delete answers.
+added delete functionality to answer controller and model.
