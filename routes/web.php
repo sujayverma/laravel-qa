@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\AnswersController;
+use App\Http\Controllers\AcceptAnswerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,4 @@ Route::resource('/question', QuestionsController::class)->except('show');
 Route::get('/question/{slug}', [QuestionsController::class, 'show'])->name('question.show');
 // Route::post('/question/{question}/answer','')->name('answer.store');
 Route::resource('question.answers', AnswersController::class)->only(['store', 'edit', 'update', 'destroy']);
+Route::post('/answers/{answer}/accept', AcceptAnswerController::class)->name('answers.accept');
