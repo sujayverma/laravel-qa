@@ -200,3 +200,14 @@ git add . git commit git push git checkout git merge git push
 added delete functionality to answer controller and model.
 
 44) Created a new branch lesson-20. In this we will learn how to mark the best answer.
+
+45) Created a new branch lesson-21. In this lesson we will learn how to favorite a question.
+To determine the relation between users questions we will create a table 'favorites'
+in this table we will have many to many relationship.
+Here we create 2 seeder files to add dummy data in DB UserQuestionAnswerTableSeeder File and FavoritesTableSeeder file.
+Add code to it. run the seed file using php artisan.
+php artisan db:seed --class=FavoritesTableSeeder
+Now we will create a frontend action for favoriting and unfavorite a question.
+For this task lets add new routes to web.php.
+Made controller Favorites add code to controller & view and question model.
+git add git commit  git push git checkout master git merge git push

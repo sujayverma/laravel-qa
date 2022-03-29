@@ -58,6 +58,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Answer');
     }
 
+    /*
+        This creates many to many relationship between questions and users and stores it in favorites tables.
+     */
+    public function favorites ()
+    {
+        return $this->belongsToMany('App\Models\Question', 'favorites')->withTimestamps(); // mention the table where relation is saved. // can 'user_id', 'question_id' 3rd and 4th parameter as foregin key columns name.
+         // with timestamps is used for adding time stamp to favorites table.
+    }
+
      /*
         This Sets url accessor to access value in views.
      */

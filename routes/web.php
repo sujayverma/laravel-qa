@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\AnswersController;
 use App\Http\Controllers\AcceptAnswerController;
+use App\Http\Controllers\FavoritesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,6 @@ Route::get('/question/{slug}', [QuestionsController::class, 'show'])->name('ques
 // Route::post('/question/{question}/answer','')->name('answer.store');
 Route::resource('question.answers', AnswersController::class)->only(['store', 'edit', 'update', 'destroy']);
 Route::post('/answers/{answer}/accept', AcceptAnswerController::class)->name('answers.accept');
+
+Route::post('/question/{question}/favorites', [FavoritesController::class, 'store'])->name('question.favorite');
+Route::delete('/question/{question}/favorites', [FavoritesController::class, 'destroy'])->name('question.unfavorite');

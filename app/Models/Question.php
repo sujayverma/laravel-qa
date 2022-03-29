@@ -29,6 +29,43 @@ class Question extends Model
     }
 
     /*
+        This creates many to many relationship between questions and users and stores it in favorites tables.
+     */
+    public function favorites ()
+    {
+        return $this->belongsToMany('App\Models\User', 'favorites')->withTimestamps(); // mention the table where relation is saved. // can 'question_id', 'user_id' 3rd and 4th parameter as foregin key columns name.
+        // with timestamps is used for adding time stamp to favorites table.
+    }
+
+     /*
+        This return if the question is favorited by user or not.
+     */
+    public function isFavorited ()
+    {
+        return $this->favorites()->where('user_id', auth()->id())->count() > 0;
+    }
+
+    /*
+        This is accessor returns if the question is favorited or not.
+     */
+    public function getIsFavoritedAttribute ()
+    {   
+        // \DB::enableQueryLog();
+        // echo 'hi'.$this->favoritses()->where('user_id', auth()->id())->count();
+        // dd($this->favorites);
+        // dd(\DB::getQueryLog());
+        return $this->isFavorited();
+    }
+
+    /*
+        This returns the favorate count.
+     */
+    public function getFavoriteCountAttribute ()
+    {
+        return $this->favorites->count();
+    }
+
+    /*
         This Sets value for slug to store in DB.
      */
     public function setTitleAttribute ($value) 
