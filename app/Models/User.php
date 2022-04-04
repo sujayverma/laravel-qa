@@ -104,7 +104,7 @@ class User extends Authenticatable
     }
 
     /*
-        This has all the votes logic like how the user votes and other stuff.
+        This has all the votes logic for question like how the user votes and other stuff.
      */
     public function voteTheQuestion (Question $question, $vote)
     {
@@ -123,5 +123,27 @@ class User extends Authenticatable
         $upVotes = (int) $question->upVotes()->sum('vote');
         $question->votes_count = $upVotes + $downVotes;
         $question->save();
+    }
+
+     /*
+        This has all the votes logic for answer like how the user votes and other stuff.
+     */
+    public function voteTheAnswer (Answer $answer, $vote)
+    {
+        $voteAnswers = $this->voteAnswers();
+        if( $voteAnswers->where('votable_id', $answer->id)->exists() )
+        {
+            $voteAnswers->updateExistingPivot($answer, ['vote' => $vote]);
+        }
+        else
+        {
+            $voteAnswers->attach($answer, ['vote' => $vote]);
+        }
+
+        $answer->load('vote'); // Update the votes value.
+        $downVotes = (int) $answer->downVotes()->sum('vote');
+        $upVotes = (int) $answer->upVotes()->sum('vote');
+        $answer->votes_count = $upVotes + $downVotes;
+        $answer->save();
     }
 }

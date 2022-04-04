@@ -66,6 +66,22 @@ class Answer extends Model
         return $this->id === $this->question->best_answer_id;
     }
 
+     /*
+        This returns the up votes for a question.
+     */
+    public function upVotes ()
+    {
+        return $this->vote()->wherePivot('vote', 1);
+    }
+
+    /*
+        This returns the down votes for a question.
+     */
+    public function downVotes ()
+    {
+        return $this->vote()->wherePivot('vote', -1);
+    }
+
     public static function boot()
     {
         parent::boot();

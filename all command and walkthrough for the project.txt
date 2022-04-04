@@ -242,3 +242,8 @@ php artisan make:seeder VotablesTableSeeder   // This will create seeders.
 php artisan db:seed --class=VotablesTableSeeder   // Run the seeder file.
 Now make a controller for voteQuestions.
 php artisan make:controller VoteQuestionController   // Make controller.
+php artisan make:controller VoteAnswerController   // Make controller.
+Add routes.
+Add code for upvote and down vote in User model.
+Add form to view page.
+Git ad commit and push.
