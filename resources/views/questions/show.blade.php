@@ -19,13 +19,27 @@
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-1 bd-highlight">
                     <div class="d-flex flex-column vote-controls">
-                        <a title="This question is usefull" class="vote-up">
+                        <a title="This question is usefull" 
+                        class="vote-up {{ Auth::guest() ? 'off' : ''}}"
+                        onclick="event.preventDefault(); document.getElementById('up-vote-question-{{ $question->id}}').submit()"
+                        >
                             <i class="fas fa-caret-up fa-3x"></i>
                         </a>
-                        <span class="votes-count">200</span>
-                        <a class="vote-down off" title="This question is not usefull">
+                        <form id="up-vote-question-{{ $question->id }}" method="POST" action="/question/{{ $question->id}}/vote " style="display: hidden">
+                            @csrf
+                          <input type="hidden" name="vote" value="1" />
+                        </form>
+                        <span class="votes-count"> {{$question->votes_count}} </span>
+                        <a class="vote-down {{ Auth::guest() ? 'off' : ''}}" 
+                           title="This question is not usefull"
+                           onclick="event.preventDefault(); document.getElementById('down-vote-question-{{ $question->id}}').submit()"
+                           >
                             <i class="fas fa-caret-down fa-3x"></i>
                         </a>
+                        <form id="down-vote-question-{{ $question->id }}" method="POST" action="/question/{{ $question->id}}/vote " style="display: hidden">
+                            @csrf
+                          <input type="hidden" name="vote" value="-1" />
+                        </form>
                         <a 
                         class="favorite mt-2 {{ Auth::guest() ? 'off' : ($question->is_favorited ?  'favorited' : '') }}" 
                         title="Click to mark as favorite Question (Click again to undo)"

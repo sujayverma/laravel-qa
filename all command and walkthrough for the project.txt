@@ -211,3 +211,34 @@ Now we will create a frontend action for favoriting and unfavorite a question.
 For this task lets add new routes to web.php.
 Made controller Favorites add code to controller & view and question model.
 git add git commit  git push git checkout master git merge git push
+
+46) Created a new branch lesson-22
+In this lesson we will implement vote up and vote down for question and answers both.
+We will use many to many polymorphic relationship for this task. We create only a single table to store the values.
+We will add all the relation functions in User, Question and Answer model. Have to rename votes the column name in question table to votes_count.
+php artisan make:migration rename_votes_on_questions_table --table=questions
+open tinker
+php artisan tinker
+$q1 = App\Models\Question::find(1); // This will assign id 1 value from Questions table to $q1.
+$q2 = App\Models\Question::find(2);
+$u2 = App\Models\User::find(2);
+$u1 = App\Models\User::find(1);
+$a1 = $q1->answers->first(); // This will assign first answer to question id 1 to $a1.
+$a2 = $q2->answers->first();
+$u1->voteQuestions()->attach($q1, ['vote' => 1]); // This will add vote to question id 1 by user id 1.
+$u1->voteQuestions()->where('votable_id', $q1->id)->exists(); // This will return boolean. It checks if the user id 1 has voted question id 1 or not.
+$u1->voteQuestions;  // This will return user id 1 votes to all questions
+$u2->voteQuestions()->attach($q1, ['vote' => -1]) // Negitive voting a question.
+$u1->voteAnswers()->attach($a1, ['vote' => 1]).  // user id 1 voting answer of question 1.
+$u1->voteAnswers()->updateExistingPivot($a1, ['vote' => -1]) // This updates user id 1 vote to answer to the first question.
+$q1->vote; // this will return all the votes for question id 1 but this doesn't return vote column value.
+$a1->vote;
+$q1->vote()->withPivot('vote')->get(); // This will return with vote column values.
+$q1->vote()->wherePivot('vote', -1)->count(); // This will return number of Negitivevotes to question id 1.
+$q1->vote()->wherePivot('vote', -1)->sum('vote'); //This will sum up all the Negitive votes to question id 1.
+Now add a function to user model to save user vote for questions. voteTheQuestion all logic to store values.
+Make a seeder to store random fake votes in DB.
+php artisan make:seeder VotablesTableSeeder   // This will create seeders.
+php artisan db:seed --class=VotablesTableSeeder   // Run the seeder file.
+Now make a controller for voteQuestions.
+php artisan make:controller VoteQuestionController   // Make controller.

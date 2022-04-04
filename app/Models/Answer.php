@@ -28,6 +28,14 @@ class Answer extends Model
     }
 
     /*
+        This creates many to many relationship between questions and users and stores it in vaotables tables.
+     */
+    public function vote ()
+    {
+        return $this->morphToMany('App\Models\User', 'votable');
+    }
+
+    /*
         This Sets body_html accessor to access value in views.
      */
     public function getBodyHtmlAttribute()
