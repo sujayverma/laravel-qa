@@ -59,19 +59,18 @@
                     </div>
                    <div class="p-2 flex-grow-2 bd-highlight"> 
                         {!! $question->body_html !!}
-                        <div class="float-end">
-                            <span class="text-muted">{{ $question->created_date}}</span>
-                            <div class="media mt-2">
-                                <a href=" {{ $question->user->url }} " class="pr-2">
-                                    <img src=" {{ $question->user->avatar }}" />
-                                </a>
-                                <div class="media-body">
-                                    <a href=" {{ $question->user->url }} ">
-                                        {{ $question->user->name }}
-                                    </a>
-                                </div>
+                       
+                            {{-- <div class="col-4">
                             </div>
-                        </div>
+                            <div class="col-4">
+                            </div> --}}
+                            <div class="float-end">
+                                @include('shared._author', [
+                                    'model' => $question,
+                                    'label' => 'Asked'                                
+                                    ])
+                            </div>
+                        
                    </div>
                 </div>
                 </div>

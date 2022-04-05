@@ -248,9 +248,11 @@ Add code for upvote and down vote in User model.
 Add form to view page.
 Git ad commit and push.
 
-47) Created a lesson-23 branch for refactoring the code. We will use DRY(Dont repeat yourself) principle for
+47) Created a lesson-23 branch for refactoring the model code. We will use DRY(Dont repeat yourself) principle for
 code refactoring.
 We will changes in User model functions voteTheQuestion and voteTheAnswer and write a private method and place the common code in it.
 Then we will use Traits we will create a VotableTrait place the vote relationship, upVote & downVote method in this trait.
 And remove this functions from Question and Answer model.
 git add, git commit, git push, git merge & push  
+
+48) Created a lesson-24 branch for refactoring the view code with DRY principle.
