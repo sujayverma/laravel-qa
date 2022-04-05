@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\VotableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
     use HasFactory;
-
+    use VotableTrait;
+    
     protected $fillable = ['body', 'user_id'];
 
     /*
@@ -27,13 +29,7 @@ class Answer extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    /*
-        This creates many to many relationship between questions and users and stores it in vaotables tables.
-     */
-    public function vote ()
-    {
-        return $this->morphToMany('App\Models\User', 'votable');
-    }
+    
 
     /*
         This Sets body_html accessor to access value in views.
@@ -64,22 +60,6 @@ class Answer extends Model
     public function isBest()
     {
         return $this->id === $this->question->best_answer_id;
-    }
-
-     /*
-        This returns the up votes for a question.
-     */
-    public function upVotes ()
-    {
-        return $this->vote()->wherePivot('vote', 1);
-    }
-
-    /*
-        This returns the down votes for a question.
-     */
-    public function downVotes ()
-    {
-        return $this->vote()->wherePivot('vote', -1);
     }
 
     public static function boot()

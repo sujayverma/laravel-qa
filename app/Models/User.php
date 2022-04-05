@@ -109,20 +109,7 @@ class User extends Authenticatable
     public function voteTheQuestion (Question $question, $vote)
     {
         $voteQuestions = $this->voteQuestions();
-        if( $voteQuestions->where('votable_id', $question->id)->exists() )
-        {
-            $voteQuestions->updateExistingPivot($question, ['vote' => $vote]);
-        }
-        else
-        {
-            $voteQuestions->attach($question, ['vote' => $vote]);
-        }
-
-        $question->load('vote'); // Update the votes value.
-        $downVotes = (int) $question->downVotes()->sum('vote');
-        $upVotes = (int) $question->upVotes()->sum('vote');
-        $question->votes_count = $upVotes + $downVotes;
-        $question->save();
+        $this->_vote( $voteQuestions, $question, $vote);
     }
 
      /*
@@ -131,19 +118,24 @@ class User extends Authenticatable
     public function voteTheAnswer (Answer $answer, $vote)
     {
         $voteAnswers = $this->voteAnswers();
-        if( $voteAnswers->where('votable_id', $answer->id)->exists() )
+        $this->_vote( $voteAnswers, $answer, $vote);
+    }
+
+    private function _vote( $relationship, $method, $vote )
+    {
+        if( $relationship->where('votable_id', $method->id)->exists() )
         {
-            $voteAnswers->updateExistingPivot($answer, ['vote' => $vote]);
+            $relationship->updateExistingPivot($method, ['vote' => $vote]);
         }
         else
         {
-            $voteAnswers->attach($answer, ['vote' => $vote]);
+            $relationship->attach($method, ['vote' => $vote]);
         }
 
-        $answer->load('vote'); // Update the votes value.
-        $downVotes = (int) $answer->downVotes()->sum('vote');
-        $upVotes = (int) $answer->upVotes()->sum('vote');
-        $answer->votes_count = $upVotes + $downVotes;
-        $answer->save();
+        $method->load('vote'); // Update the votes value.
+        $downVotes = (int) $method->downVotes()->sum('vote');
+        $upVotes = (int) $method->upVotes()->sum('vote');
+        $method->votes_count = $upVotes + $downVotes;
+        $method->save();
     }
 }

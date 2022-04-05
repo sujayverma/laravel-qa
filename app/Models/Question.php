@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\VotableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -9,7 +10,7 @@ use Illuminate\Support\Str;
 class Question extends Model
 {
     use HasFactory;
-
+    use VotableTrait;
     protected $fillable = ['title', 'body'];
 
     /*
@@ -37,14 +38,7 @@ class Question extends Model
         // with timestamps is used for adding time stamp to favorites table.
     }
 
-    /*
-        This creates many to many relationship between questions and users and stores it in vaotables tables.
-     */
-    public function vote ()
-    {
-        return $this->morphToMany('App\Models\User', 'votable')->withTimestamps();
-    }
-
+    
      /*
         This return if the question is favorited by user or not.
      */
@@ -128,20 +122,6 @@ class Question extends Model
         $this->save();
     }
 
-     /*
-        This returns the up votes for a question.
-     */
-    public function upVotes ()
-    {
-        return $this->vote()->wherePivot('vote', 1);
-    }
-
-    /*
-        This returns the down votes for a question.
-     */
-    public function downVotes ()
-    {
-        return $this->vote()->wherePivot('vote', -1);
-    }
+    
 
 }
