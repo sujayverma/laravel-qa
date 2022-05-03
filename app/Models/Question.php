@@ -110,7 +110,7 @@ class Question extends Model
      */
     public function getBodyHtmlAttribute()
     {
-       return \Parsedown::instance()->text($this->body);
+       return \Purifier::clean($this->bodyHtml());
     }
 
      /*
@@ -120,6 +120,30 @@ class Question extends Model
     {
         $this->best_answer_id = $answer->id;
         $this->save();
+    }
+
+    /*
+        This Sets excerpt accessor to access value in views.
+     */
+    public function getExcerptAttribute()
+    {
+        return $this->excerpt(250);
+    }
+
+    /*
+        This Sets excerpt and it's length.
+     */
+    public function excerpt($length)
+    {
+        return Str::limit(strip_tags($this->bodyHtml()), $length );
+    }
+
+    /*
+        This returns question body text..
+     */
+    private function bodyHtml()
+    {
+        return \Parsedown::instance()->text($this->body);
     }
 
     

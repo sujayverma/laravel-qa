@@ -256,3 +256,8 @@ And remove this functions from Question and Answer model.
 git add, git commit, git push, git merge & push  
 
 48) Created a lesson-24 branch for refactoring the view code with DRY principle.
+
+49) Created a lesson-25 branch for showing excerpt in question index and removing script tags from question body content.
+Installed a Purifier package to clean question body and answer body from mailocus code.
+package used https://github.com/mewebstudio/Purifier 
+Purifier::clean(Input::get('inputname'));
