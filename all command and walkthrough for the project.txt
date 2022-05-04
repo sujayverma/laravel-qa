@@ -261,3 +261,7 @@ git add, git commit, git push, git merge & push
 Installed a Purifier package to clean question body and answer body from mailocus code.
 package used https://github.com/mewebstudio/Purifier 
 Purifier::clean(Input::get('inputname'));
+
+50) Created branch lesson-26. In this branch we will remove the default laravel homepage.
+Show answers order by vote counts. Remove answer templete when on answer to a question.
+Show a alert when no question.

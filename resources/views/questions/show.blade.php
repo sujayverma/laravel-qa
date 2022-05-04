@@ -17,7 +17,7 @@
                 </div>
                 <hr>
                 <div class="d-flex bd-highlight">
-                    <div class="p-2 flex-grow-1 bd-highlight">
+                    <div class="p-2 flex-grow-2 bd-highlight">
                     <div class="d-flex flex-column vote-controls">
                         <a title="This question is usefull" 
                         class="vote-up {{ Auth::guest() ? 'off' : ''}}"
@@ -57,7 +57,7 @@
                         </form>
                     </div>
                     </div>
-                   <div class="p-2 flex-grow-2 bd-highlight"> 
+                   <div class="p-2 flex-grow-1 bd-highlight"> 
                         {!! $question->body_html !!}
                        
                             {{-- <div class="col-4">
