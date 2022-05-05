@@ -11349,3 +11349,10 @@ form.form-delete {
 .vote-controls a.vote-accepted {
   color: green;
 }
+
+.post {
+  padding: 30px 0px;
+}
+.post:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
