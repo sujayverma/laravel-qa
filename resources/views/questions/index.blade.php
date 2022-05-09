@@ -27,7 +27,7 @@
                         <strong>Sorry</strong> There are no questions available.
                     </div>
                     @endforelse
-                    {{ $questions->links() }}
+                    {!! $questions->links() !!}
                 </div>
             </div>
         </div>
