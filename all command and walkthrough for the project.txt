@@ -265,3 +265,9 @@ Purifier::clean(Input::get('inputname'));
 50) Created branch lesson-26. In this branch we will remove the default laravel homepage.
 Show answers order by vote counts. Remove answer templete when on answer to a question.
 Show a alert when no question.
+
+51) Created branch lesson-27. In this branch we will tidy up our view so that we can integrate vuejs easily.
+We will create a child view for answers and questions index page.
+Used or Activated bootstrap pagination. By calling a paginator method inside serviceProvder class.
+Please check https://impulsivecode.com/laravel-8-pagination-example-with-bootstrap-4/ 
+Link to know more.
