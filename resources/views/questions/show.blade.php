@@ -65,10 +65,11 @@
                             <div class="col-4">
                             </div> --}}
                             <div class="float-end">
-                                @include('shared._author', [
+                                {{-- @include('shared._author', [
                                     'model' => $question,
                                     'label' => 'Asked'                                
-                                    ])
+                                    ]) --}}
+                                <UserInfo :model="{{ $question }}" label="Asked"></UserInfo>  
                             </div>
                         
                    </div>
