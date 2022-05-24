@@ -12,7 +12,7 @@ class Question extends Model
     use HasFactory;
     use VotableTrait;
     protected $fillable = ['title', 'body'];
-
+    protected $appends = ['created_date'];
     /*
         This Created Relation with User Model.
      */    

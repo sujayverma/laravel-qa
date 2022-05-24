@@ -272,7 +272,16 @@ Used or Activated bootstrap pagination. By calling a paginator method inside ser
 Please check https://impulsivecode.com/laravel-8-pagination-example-with-bootstrap-4/ 
 Link to know more.
 
-52) Created branch lesson-28. In this branch we will implement vue js views.
+52) Created branch lesson-28. In this branch we will implement vue js views. We will make author details appear using vue component.
+Run the following command first to work with vuejs.
+i) composer require laravel/ui   ----- will install UI related dependency.
+ii) php artisan ui vue    ------ The laravel/ui package has some helpful Artisan commands which will automatically scaffold out everything you need to get started with Vue.
+iii) npm install && npm run dev    ----- Install all dependency and compile them.
+iv) <script src="{{ mix('/js/app.js') }}"></script>  ---- Use mix to include js file.
+v) npm install vue-loader@^15.9.7 --save-dev --legacy-peer-deps  ----- will install vuejs loader.
+vi) npm update vue-loader  ----- this will update the vue loader.
+vii) npm audit fix ----- to fix other library issue.
+viii) npm run watch ----- And we are good to go. 
 We will show author details for question and answers using vue js components.
 so first run npm i vue-loader --- to install vue js loader. Make changes to webpack.mix.js use vue function.
 create a Userinfo component for author details. Include the component in app.js. append protected accesor in model
