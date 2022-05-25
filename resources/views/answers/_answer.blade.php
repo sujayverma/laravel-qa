@@ -45,11 +45,11 @@
         <div class="p-2 flex-grow-1 bd-highlight">
             <form v-if="editing" @submit.prevent="update">
                 <div class="form-group">
-                    <textarea class="form-control" v-model="body" rows="10"></textarea>
+                    <textarea class="form-control" v-model="body" rows="10" required></textarea>
                 </div>
                 <div class="mt-3">
-                    <button  type="submit" class="btn btn-lg btn-outline-primary">Update</button>
-                    <button @click = "editing = false" class="btn btn-lg btn-outline-warning">Cancel</button>
+                    <button  type="submit" class="btn btn-lg btn-outline-primary" :disabled="IsValid">Update</button>
+                    <button @click = "cancel" class="btn btn-lg btn-outline-secondary">Cancel</button>
                 </div>
             </form>
             <div v-else>
@@ -59,7 +59,7 @@
                 <div class="col-4">
                     <div class="ml-auto" style="margin-left: auto">
                         @can('update', $answer)
-                            <a @click.prevent="editing = true" class="btn btn-sm btn-outline-info">Edit</a>
+                            <a @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
                         @endcan
                         @can('delete', $answer)
                             <form class="form-delete" method="POST" action=" {{ route('question.answers.destroy', [$question->id, $answer->id]) }}">

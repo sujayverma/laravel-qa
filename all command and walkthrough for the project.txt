@@ -289,3 +289,5 @@ to access data in vue component.
 
 53) Created branch lesson-29. In this branch we will learn inline templating using vue js component.
 We will created answer component and even display edit form in SPA.
+Added edit form in same page. Added validation for blank form. Used binding for disabling the update button.
+Showed alert message aswell.
