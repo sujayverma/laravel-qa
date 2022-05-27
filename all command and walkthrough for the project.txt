@@ -291,3 +291,5 @@ to access data in vue component.
 We will created answer component and even display edit form in SPA.
 Added edit form in same page. Added validation for blank form. Used binding for disabling the update button.
 Showed alert message aswell.
+
+54) Created branch 30. In this branch we learn to implement vuejs to delete button for the answers.

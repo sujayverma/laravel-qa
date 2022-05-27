@@ -17,6 +17,9 @@ export default {
     computed: {
         IsValid ( ) {
             return this.body.length < 10;
+        },
+        endpoint () {
+            return `${this.questionId}/answers/${this.id}`;
         }
     },
 
@@ -30,7 +33,7 @@ export default {
             this.editing = false;
         },
         update () {
-            axios.patch(`${this.questionId}/answers/${this.id}`,{
+            axios.patch( this.endpoint,{
                 body: this.body
             })
             .then((res) => {
@@ -43,6 +46,15 @@ export default {
                 alert(err.response.data.message);
                 console.log(err.response);
             })
+        },
+        destroy () {
+            if(confirm('Are you sure?'))
+            {
+                axios.delete(this.endpoint)
+                .then( (res) => {
+                    jQuery(this.$el).fadeOut(1000, () => { alert(res.data.message) });
+                });
+            }
         }
     }
 }
