@@ -293,3 +293,6 @@ Added edit form in same page. Added validation for blank form. Used binding for 
 Showed alert message aswell.
 
 54) Created branch 30. In this branch we learn to implement vuejs to delete button for the answers.
+
+55) Created branch 31. In this branch we learn to use iztoast plugin. To show alert message in a better way.
+Used iztoast for edit and delete but jquery not working for delete.
