@@ -296,3 +296,6 @@ Showed alert message aswell.
 
 55) Created branch 31. In this branch we learn to use iztoast plugin. To show alert message in a better way.
 Used iztoast for edit and delete but jquery not working for delete.
+
+56) Created branch 32. In this branch we will create favorite component in vue js.
+Using this component we will favorite and unfavorite questions. Created a window.Auth value for authentication checking.

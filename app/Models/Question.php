@@ -12,7 +12,7 @@ class Question extends Model
     use HasFactory;
     use VotableTrait;
     protected $fillable = ['title', 'body'];
-    protected $appends = ['created_date'];
+    protected $appends = ['created_date', 'is_favorited', 'favorite_count'];
     /*
         This Created Relation with User Model.
      */    
