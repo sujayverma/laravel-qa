@@ -23,7 +23,7 @@
                     @csrf
                   <input type="hidden" name="vote" value="-1" />
                 </form>
-                @can('accept', $answer)
+                {{-- @can('accept', $answer)
                 <a class="{{ $answer->status}} mt-2" 
                     title="Mark this answer as best answer"
                     onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();"
@@ -39,7 +39,8 @@
                         <i class="fas fa-check fa-2x"></i>
                     </a>
                     @endif
-                @endcan
+                @endcan --}}
+                <accept :answer= "{{ $answer }}"></accept>
             </div>
             </div>
         <div class="p-2 flex-grow-1 bd-highlight">
