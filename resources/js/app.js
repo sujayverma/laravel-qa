@@ -9,7 +9,13 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 import VueIziToast from 'vue-izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import Authorization from './authorization/authorize';
+import Vue from 'vue';
 Vue.use(VueIziToast);
+
+Vue.use(Authorization);
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
