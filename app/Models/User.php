@@ -109,7 +109,7 @@ class User extends Authenticatable
     public function voteTheQuestion (Question $question, $vote)
     {
         $voteQuestions = $this->voteQuestions();
-        $this->_vote( $voteQuestions, $question, $vote);
+        return $this->_vote( $voteQuestions, $question, $vote);
     }
 
      /*
@@ -118,7 +118,7 @@ class User extends Authenticatable
     public function voteTheAnswer (Answer $answer, $vote)
     {
         $voteAnswers = $this->voteAnswers();
-        $this->_vote( $voteAnswers, $answer, $vote);
+        return $this->_vote( $voteAnswers, $answer, $vote);
     }
 
     private function _vote( $relationship, $method, $vote )
@@ -137,5 +137,6 @@ class User extends Authenticatable
         $upVotes = (int) $method->upVotes()->sum('vote');
         $method->votes_count = $upVotes + $downVotes;
         $method->save();
+        return $method->votes_count;
     }
 }

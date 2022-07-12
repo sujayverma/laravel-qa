@@ -18,7 +18,7 @@
                 <hr>
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-2 bd-highlight">
-                    <div class="d-flex flex-column vote-controls">
+                    {{-- <div class="d-flex flex-column vote-controls">
                         <a title="This question is usefull" 
                         class="vote-up {{ Auth::guest() ? 'off' : ''}}"
                         onclick="event.preventDefault(); document.getElementById('up-vote-question-{{ $question->id}}').submit()"
@@ -47,8 +47,9 @@
                             @if($question->is_favorited)
                                 @method('DELETE')
                             @endif
-                        </form> --}}
-                    </div>
+                        </form> 
+                    </div> --}}
+                    <vote :model="{{ $question }}" name="question"></vote>
                     </div>
                    <div class="p-2 flex-grow-1 bd-highlight"> 
                         {!! $question->body_html !!}

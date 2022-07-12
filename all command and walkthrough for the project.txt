@@ -306,3 +306,6 @@ Using this component we will favorite and unfavorite questions. Created a window
 and it's component.
 To get this task done we create a authorization folder in js and created 2 files inside it used it in app.js
 declare prototype method and object to get the task done.
+
+59) Created a new branch 35. In this branch we will implement vote control in vue js. Created a Vote.vue file
+and added logic for implement vote control made changes to user model and voteAnswers & voteQuestions controllers aswell.

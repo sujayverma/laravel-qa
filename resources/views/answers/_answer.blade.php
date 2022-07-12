@@ -1,7 +1,7 @@
 <answer :answer="{{ $answer }}" inline-template>
     <div class="d-flex bd-highlight post">
         <div class="p-2 flex-grow-2 bd-highlight">
-            <div class="d-flex flex-column vote-controls">
+            {{--<div class="d-flex flex-column vote-controls">
                 <a title="This answer is usefull" 
                 class="vote-up {{ Auth::guest() ? 'off' : ''}}"
                 onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{ $answer->id}}').submit()"
@@ -23,7 +23,7 @@
                     @csrf
                   <input type="hidden" name="vote" value="-1" />
                 </form>
-                {{-- @can('accept', $answer)
+                 @can('accept', $answer)
                 <a class="{{ $answer->status}} mt-2" 
                     title="Mark this answer as best answer"
                     onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();"
@@ -39,9 +39,10 @@
                         <i class="fas fa-check fa-2x"></i>
                     </a>
                     @endif
-                @endcan --}}
+                @endcan 
                 <accept :answer= "{{ $answer }}"></accept>
-            </div>
+            </div>--}}
+            <vote :model= "{{ $answer }}" name="answer"></vote>
             </div>
         <div class="p-2 flex-grow-1 bd-highlight">
             <form v-if="editing" @submit.prevent="update">
