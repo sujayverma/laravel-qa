@@ -1,6 +1,6 @@
 <answer :answer="{{ $answer }}" inline-template>
-    <div class="d-flex bd-highlight post">
-        <div class="p-2 flex-grow-2 bd-highlight">
+    {{-- <div class="d-flex bd-highlight post">
+        <div class="p-2 flex-grow-2 bd-highlight"> --}}
             {{--<div class="d-flex flex-column vote-controls">
                 <a title="This answer is usefull" 
                 class="vote-up {{ Auth::guest() ? 'off' : ''}}"
@@ -42,22 +42,22 @@
                 @endcan 
                 <accept :answer= "{{ $answer }}"></accept>
             </div>--}}
-            <vote :model= "{{ $answer }}" name="answer"></vote>
-            </div>
-        <div class="p-2 flex-grow-1 bd-highlight">
-            <form v-if="editing" @submit.prevent="update">
-                <div class="form-group">
-                    <textarea class="form-control" v-model="body" rows="10" required></textarea>
+                {{-- <vote :model= "{{ $answer }}" name="answer"></vote>
                 </div>
-                <div class="mt-3">
-                    <button  type="submit" class="btn btn-lg btn-outline-primary" :disabled="IsValid">Update</button>
-                    <button @click = "cancel" class="btn btn-lg btn-outline-secondary">Cancel</button>
-                </div>
-            </form>
-            <div v-else>
-            <div v-html="bodyHtml"></div>
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <form v-if="editing" @submit.prevent="update">
+                    <div class="form-group">
+                        <textarea class="form-control" v-model="body" rows="10" required></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <button  type="submit" class="btn btn-lg btn-outline-primary" :disabled="IsValid">Update</button>
+                        <button @click = "cancel" class="btn btn-lg btn-outline-secondary">Cancel</button>
+                    </div>
+                </form>
+                <div v-else>
+                <div v-html="bodyHtml"></div> --}}
             {{-- {!! $answer->body_html !!} --}}
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-4">
                     <div class="ml-auto" style="margin-left: auto">
                         @can('update', $answer)
@@ -70,18 +70,18 @@
                 </div>
                 <div class="col-4">
                 </div>
-                <div class="col-4">
+                <div class="col-4"> --}}
                     
                     {{-- @include('shared._author', [
                         'model' => $answer,
                         'label' => 'Answered'
                     ]) --}}
-                    <user-info :model="{{ $answer }}" label="Answered by"></user-info>
+                    {{-- <user-info :model="{{ $answer }}" label="Answered by"></user-info>
                 </div>
             </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     
 </answer> 
 <div style="clear:both"></div>

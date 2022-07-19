@@ -74,10 +74,11 @@
             </div>
         </div>
     </div>
-    @include('answers._index', [
+    {{-- @include('answers._index', [
         'answers' => $question->answers,
         'answersCount' => $question->answers_count
-    ])
+    ]) --}}
+    <answers :answers="{{ $question->answers }}" :count="{{$question->answers_count}}"></answers>
     {{-- @can('canAnswer') --}}
     @include('answers._create')
     {{-- @endcan --}}

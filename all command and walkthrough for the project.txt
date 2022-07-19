@@ -309,3 +309,5 @@ declare prototype method and object to get the task done.
 
 59) Created a new branch 35. In this branch we will implement vote control in vue js. Created a Vote.vue file
 and added logic for implement vote control made changes to user model and voteAnswers & voteQuestions controllers aswell.
+
+60) Created a new branch 36. In this branch we will implement Answers vue it will be parent to Answer vue.
