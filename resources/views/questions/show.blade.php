@@ -78,7 +78,7 @@
         'answers' => $question->answers,
         'answersCount' => $question->answers_count
     ]) --}}
-    <answers :answers="{{ $question->answers }}" :count="{{$question->answers_count}}"></answers>
+    <answers :question="{{ $question }}"></answers>
     {{-- @can('canAnswer') --}}
     @include('answers._create')
     {{-- @endcan --}}

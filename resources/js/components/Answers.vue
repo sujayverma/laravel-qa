@@ -10,6 +10,9 @@
                 </div>
                 <hr>
                 <answer v-for=" answer in answers" :answer="answer" :key="answer.id"></answer>
+                <div class="text-center mt-3">
+                    <button @click.prevent="fetch(nextUrl)" class="btn btn-outline-secondary" v-if="nextUrl">Load more answers</button>
+                </div>
             </div>
         </div>
     </div>
@@ -17,10 +20,31 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Answer from './Answer.vue'
 export default {
     components: { Answer },
-    props: ['answers', 'count'],
+    props: ['question'],
+    data() {
+        return {
+            questionId: this.question.id,
+            count: this.question.answers_count,
+            answers: [],
+            nextUrl: null
+        }
+    },
+    created() {
+        this.fetch(`${this.questionId}/answers`);
+    },
+    methods: {
+        fetch(endpoint) {
+            axios.get(endpoint)
+            .then(({data}) => {
+                this.answers.push(... data.data);
+                this.nextUrl = data.next_page_url;
+            });
+        }
+    },
     computed: {
         title () {
             return this.count + " " + ((this.count > 1) ? 'Answers' : 'Answer')
