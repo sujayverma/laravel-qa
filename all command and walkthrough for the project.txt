@@ -316,5 +316,8 @@ and added logic for implement vote control made changes to user model and voteAn
 Implement load more answers in question page. Added index function to answers controller and removed answers from
 RouteServiceProvider.
 
-32) Created a new branch lesson-38. In this branch we will deleted answers from the list using custom events using emit.
+62) Created a new branch lesson-38. In this branch we will deleted answers from the list using custom events using emit.
 Implemented vue.js custom events on answers deletion.
+
+63) Created a new branch lesson-39. In this branch we will create a global custom bus events to communicate between the components.
+Fixed issue on Accept component by implementing custom event bus.
