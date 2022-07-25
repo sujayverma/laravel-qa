@@ -87,7 +87,7 @@ export default {
         },
         destroy () {
               this.$toast.question( 'Are you sure about this?', 'confirm', {
-                    timeout: 3000,
+                    timeout: 2000,
                     close: false,
                     overlay: true,
                     displayMode: 'once',
@@ -102,7 +102,8 @@ export default {
                                 .then( (res) => {
                                     // alert(this.$el);
                                     // this.$el.fadeout(3000);
-                                     this.$toast.success(res.data.message, 'Success', { timeout: 3000 });
+                                    //  this.$toast.success(res.data.message, 'Success', { timeout: 3000 });
+                                    this.$emit('delete');
                                 });
                 
                         }, true],
