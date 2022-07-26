@@ -323,4 +323,4 @@ Implemented vue.js custom events on answers deletion.
 Fixed issue on Accept component by implementing custom event bus.
 
 64) Created branch lesson-40. In this lesson we will create Answers form using vue js component.
-Created add New Answercomponent.
+Created add New Answer component.
