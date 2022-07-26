@@ -80,7 +80,7 @@
     ]) --}}
     <answers :question="{{ $question }}"></answers>
     {{-- @can('canAnswer') --}}
-    @include('answers._create')
+    {{-- @include('answers._create') --}}
     {{-- @endcan --}}
     
 </div>

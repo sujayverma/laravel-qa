@@ -1,29 +1,34 @@
 <template>
-   <div class="row mt-4" v-cloak v-if="count">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">
-                    <h2>
-                        {{ title }}
-                    </h2>
-                </div>
-                <hr>
-                <answer @delete="remove(index)" v-for=" (answer, index) in answers" :answer="answer" :key="answer.id"></answer>
-                <div class="text-center mt-3">
-                    <button @click.prevent="fetch(nextUrl)" class="btn btn-outline-secondary" v-if="nextUrl">Load more answers</button>
+ 
+    <div>
+        <div class="row mt-4" v-cloak v-if="count">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>
+                                {{ title }}
+                            </h2>
+                        </div>
+                        <hr>
+                        <answer @delete="remove(index)" v-for=" (answer, index) in answers" :answer="answer" :key="answer.id"></answer>
+                        <div class="text-center mt-3">
+                            <button @click.prevent="fetch(nextUrl)" class="btn btn-outline-secondary" v-if="nextUrl">Load more answers</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <new-answer @created= "add" :question-id= "question.id"></new-answer>
     </div>
-</div> 
 </template>
 
 <script>
 import axios from 'axios';
 import Answer from './Answer.vue'
+import NewAnswer from './NewAnswer.vue';
 export default {
-    components: { Answer },
+    components: { Answer, NewAnswer },
     props: ['question'],
     data() {
         return {
@@ -37,6 +42,10 @@ export default {
         this.fetch(`${this.questionId}/answers`);
     },
     methods: {
+        add(answer) {
+            this.answers.push(answer);
+            this.count++;
+        },
         fetch(endpoint) {
             axios.get(endpoint)
             .then(({data}) => {

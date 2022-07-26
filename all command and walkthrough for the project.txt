@@ -321,3 +321,6 @@ Implemented vue.js custom events on answers deletion.
 
 63) Created a new branch lesson-39. In this branch we will create a global custom bus events to communicate between the components.
 Fixed issue on Accept component by implementing custom event bus.
+
+64) Created branch lesson-40. In this lesson we will create Answers form using vue js component.
+Created add New Answercomponent.
