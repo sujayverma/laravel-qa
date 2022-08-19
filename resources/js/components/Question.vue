@@ -40,7 +40,7 @@
                                 <div v-html="bodyHtml"></div>
                                 <div class="ml-auto">
                                     <a v-if="authorize('modify',question)" @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
-                                    <button v-if="authorize('modify',question)" @click.prevent="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    <button v-if="authorize('deleteQuestion',question)" @click.prevent="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
                                 </div>
                                 <div class="float-end">
                                     <user-info :model="question" label="Asked by"></user-info>
@@ -55,8 +55,12 @@
 
 <script>
 import axios from 'axios';
+import Vote from './Vote.vue';
+import UserInfo from './UserInfo.vue';
 export default {
     props: ['question'],
+
+    components: {Vote, UserInfo},
 
     data() {
         return {
