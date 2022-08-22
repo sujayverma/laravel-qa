@@ -326,3 +326,6 @@ Fixed issue on Accept component by implementing custom event bus.
 Created add New Answer component.
 
 65) Created branch lesson-41. In this lesson we will create Question component in vue js to add, update and delete questions.
+
+66) Created branch lesson-42. In this branch we will use Vue Mixins. the main feature of Mixin is it allow method a feature to be used
+across all components. Feature like write once use many times. 
