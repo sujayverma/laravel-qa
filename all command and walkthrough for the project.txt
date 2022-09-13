@@ -329,3 +329,7 @@ Created add New Answer component.
 
 66) Created branch lesson-42. In this branch we will use Vue Mixins. the main feature of Mixin is it allow method a feature to be used
 across all components. Feature like write once use many times. 
+
+67) Created branch lesson-44. In this branch we will learn to implement preview text area for questions and answer.
+To do this open offical bootstrap site goto documentation under components select cards then navigation
+copy the html code.
