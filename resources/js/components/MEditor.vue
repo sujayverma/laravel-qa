@@ -28,12 +28,25 @@
       <div class="tab-pane active" role="tabpanel" id="write-tab-pane">
         <slot></slot>
       </div>
-      <div class="tab-pane" role="tabpanel" id="preview-tab-pane">Preview</div>
+      <div
+        class="tab-pane"
+        role="tabpanel"
+        id="preview-tab-pane"
+        v-html="preview"
+      ></div>
     </div>
   </div>
 </template>
 <script>
+import MarkdownIt from "markdown-it";
+const md = new MarkdownIt();
 export default {
   props: ["body"],
+
+  computed: {
+    preview() {
+      return md.render(this.body);
+    },
+  },
 };
 </script>
