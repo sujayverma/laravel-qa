@@ -39,6 +39,7 @@
 </template>
 <script>
 import MarkdownIt from "markdown-it";
+import autosize from "autosize";
 const md = new MarkdownIt();
 export default {
   props: ["body"],
@@ -47,6 +48,21 @@ export default {
     preview() {
       return md.render(this.body);
     },
+  },
+
+  mounted() {
+    autosize(this.$el.querySelector("textarea"));
+  },
+  // This allows to do some action when a property changes.
+  // watch: {
+  //   body: function () {
+  //     console.log("This is watch");
+  //   },
+  // },
+
+  // This is hook function excuted when data changes in our componenet and DOM re-render.
+  updated() {
+    autosize(this.$el.querySelector("textarea"));
   },
 };
 </script>

@@ -335,3 +335,5 @@ To do this open offical bootstrap site goto documentation under components selec
 copy the html code.
 create a Markdown component. MEditor.vue add code here. Now for preview section.
 Now install markdown it package for preview section. npm install markdown-it --save-dev ----- for development dependency.
+We will install autosize for textarea so that we dont have any scroll for textarea. The height will increase automatically.
+npm i autosize -D ----- dev dependency.
